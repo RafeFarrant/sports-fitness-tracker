@@ -136,3 +136,35 @@ def compute_work_rest_ratio(df, active_threshold_g=0.3, window_s=60):
     return ratios
 
 def hockey_report(filepath):
+    df = load_session(filepath)
+    pl_cum, pl_total = compute_playerload(df)
+    vel  = compute_gps_velocity_metrics(df)
+    dir_changes = detect_direction_changes(df)
+    accels, decels = detect_accelerations_decelerations(df)
+    work_rest = compute_work_rest_ratio(df)
+
+    print(f"\n=== Hockey Session Report ===")
+    print(f"Duration:              {df['time_s'].iloc[-1]/60:.1f} min")
+    print(f"PlayerLoad:            {pl_total:.1f}")
+    print(f"Direction changes:     {len(dir_changes)}")
+    print(f"Accelerations:         {accels}")
+    print(f"Decelerations:         {decels}")
+    if vel:
+        print(f"\n--- GPS Velocity Metrics ---")
+        print(f"Max velocity:          {vel['max_velocity_kmh']} km/h")
+        print(f"Average velocity:      {vel['avg_velocity_kmh']} km/h")
+        print(f"Total distance:        {vel['total_distance_km']} km")
+        print(f"Sprint count:          {vel['sprint_count']}")
+        print(f"\n--- Distance by zone ---")
+        print(f"  Walking  (<7 km/h):  {vel['dist_walking_km']} km ({vel['time_walking_s']}s)")
+        print(f"  Jogging  (7-13):     {vel['dist_jogging_km']} km ({vel['time_jogging_s']}s)")
+        print(f"  Running  (13-18):    {vel['dist_running_km']} km ({vel['time_running_s']}s)")
+        print(f"  HSR      (18-24):    {vel['dist_hsr_km']} km ({vel['time_hsr_s']}s)")
+        print(f"  Sprint   (>24):      {vel['dist_sprinting_km']} km ({vel['time_sprinting_s']}s)")
+    print(f"\n--- Work/rest by minute ---")
+    for min_n, ratio in work_rest:
+        print(f"  Minute {min_n}: {ratio:.2f}")
+    return df, pl_cum, vel, dir_changes
+
+if __name__ == '__main__':
+    hockey_report('session1.csv')
