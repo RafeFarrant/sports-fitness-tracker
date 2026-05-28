@@ -17,3 +17,19 @@ github.com/RafeFarrant/sports-fitness-tracker
 **Issue:** GitHub folder structure created as files not folders
 **Fix:** Deleted and recreated with correct paths
 **Next:** solder MPU-6050 Monday
+
+## 2026-05-27
+**Phase:** Hardware
+**Did:** Wired MPU-6050 via I2C, uploaded firmware
+**Result:** IMU OK on first attempt
+**Issue:** SD card failed
+**Fix:** Card reader ordered — format issue, arriving tomorrow
+**Next:** Format SD card as FAT32, confirm SD card OK
+
+## 2026-05-28
+**Phase:** Software
+**Did:** Ran imu_metrics.py and plot_session.py on lift test data
+**Result:** Clean data — PlayerLoad 79.57, peak 1.3g, cadence 94.8 spm
+**Issue:** No gyro data yet
+**Fix:** Updating Arduino sketch to include gyro output
+**Next:** Retest with gyro, then SD card workflow tomorrow
