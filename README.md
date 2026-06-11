@@ -47,3 +47,14 @@ The script calculates sample rate, dynamic acceleration, PlayerLoad, peak count 
 
 ```bash
 python imu_compare.py
+
+
+## Initial IMU Validation Results
+
+| Test | Sample Rate | Mean Dynamic Acceleration | Max Dynamic Acceleration | PlayerLoad | Dominant Frequency |
+|---|---:|---:|---:|---:|---:|
+| Desk still | 83.33 Hz | 0.053 g | 0.069 g | 17.57 | 8.25 Hz |
+| Upper-back still | 83.33 Hz | 0.039 g | 0.127 g | 31.76 | 3.22 Hz |
+| Walking | 83.33 Hz | 0.105 g | 0.379 g | 161.20 | 2.04 Hz |
+
+The walking trial produced approximately 5× greater PlayerLoad than the upper-back still trial and approximately 9× greater PlayerLoad than the desk-still trial. The dominant frequency of 2.04 Hz corresponds to approximately 122 steps/min, which is plausible for walking cadence.
