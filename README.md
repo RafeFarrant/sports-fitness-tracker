@@ -6,8 +6,13 @@ The project uses an ESP32, MPU6050 inertial sensor and MicroSD card module to co
 
 ## Current Status
 
-- ESP32 successfully logging MPU6050 data to MicroSD
-- Stable sample rate of approximately 83 Hz achieved
-- Initial stationary and walking trials completed
-- Python analysis pipeline calculates dynamic acceleration, PlayerLoad and dominant frequency
-- Battery power system and GPS integration are currently in development
+## Development Status
+
+| Stage | Status | Notes |
+|---|---|---|
+| IMU wiring | Complete | MPU6050 connected over I2C |
+| SD logging | Complete | CSV logging working |
+| Python analysis | Complete v1 | PlayerLoad, dynamic acceleration and dominant frequency calculated |
+| Battery power | In progress | LiPo, TP4056 and boost converter stage |
+| Wearable enclosure | Planned | Compression vest/back-mounted unit |
+| GPS | Planned | NEO-6M module for distance/speed tracking |
