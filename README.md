@@ -70,3 +70,6 @@ The walking trial produced approximately 5× greater PlayerLoad than the upper-b
 #### Walking
 ![Walking acceleration plot](results/plots/walking_2_plot.png)
 
+## Documentation
+
+- [Wiring guide](docs/wiring.md)
