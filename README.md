@@ -59,7 +59,9 @@ python imu_compare.py
 
 The walking trial produced approximately 5× greater PlayerLoad than the upper-back still trial and approximately 9× greater PlayerLoad than the desk-still trial. The dominant frequency of 2.04 Hz corresponds to approximately 122 steps/min, which is plausible for walking cadence.
 
-### Validation Plots
+
+
+## Validation Plots
 
 #### Desk still
 ![Desk still acceleration plot](results/plots/desk_still_2_plot.png)
